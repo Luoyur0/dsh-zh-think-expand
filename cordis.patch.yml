@@ -1,0 +1,14 @@
+# dsh-think-zh-expand bundle patch（面向 DSH 0.2.2-rc.1 官方客户端）
+#
+# 挂载内容：
+#   - host 半：注册 system-prompt section，强制 agent 用中文思考与回复
+#   - client 半：界面标签中文化（DOM 精准文本替换，只改写文本节点）
+#
+# 本插件不注册任何渲染器，因此不会抢占 conversation.chat.node 的
+# assistant-step 座位，可与 dsh-auto-collapse / dsh-turn-fold 等折叠类插件共存。
+#
+# 安装（DSH 0.2.2 桌面版 profile 名为 desktop）：
+#   dsh plugin --profile desktop add file:<本包 tgz>   # 或用插件管理器安装
+- insert:
+    - id: think-zh-expand
+      name: 'dsh-think-zh-expand'
