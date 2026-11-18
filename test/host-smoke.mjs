@@ -1,5 +1,5 @@
 /**
- * dsh-think-zh-expand — host 半冒烟测试（面向 DSH 0.2.2-rc.1）。
+ * dsh-zh-think-expand — host 半冒烟测试（面向 DSH 0.2.2-rc.1）。
  *
  * 用 mock context 挂载插件，断言 system-prompt section 注册正确。
  * client 半是浏览器专用；其语法与词表由 test/client-smoke.mjs 校验。
@@ -32,8 +32,8 @@ function boot() {
   return { sections, logs }
 }
 
-test('导出插件名 dsh-think-zh-expand', () => {
-  assert.equal(name, 'dsh-think-zh-expand', '导出 name 与包名一致')
+test('导出插件名 dsh-zh-think-expand', () => {
+  assert.equal(name, 'dsh-zh-think-expand', '导出 name 与包名一致')
 })
 
 test('注册且仅注册一条 system-prompt section', () => {
@@ -44,7 +44,7 @@ test('注册且仅注册一条 system-prompt section', () => {
 test('section 名独立、order 为有限数值（0.2.2 校验要求）', () => {
   const { sections } = boot()
   const section = sections[0]
-  assert.equal(section.name, 'dsh-think-zh-expand', '使用本包专名，避免与其它 think-zh 插件重名')
+  assert.equal(section.name, 'dsh-zh-think-expand', '使用本包专名，避免与其它 think-zh 插件重名')
   assert.equal(section.order, -90, 'order 为 -90（persona 之前最先读到）')
   assert.ok(Number.isFinite(section.order), '0.2.2 的 SystemPrompt.section 要求 order 为有限数值')
   assert.equal(typeof section.text, 'string', 'section text 为字符串')
@@ -71,7 +71,7 @@ test('inject 声明 systemPrompt 硬依赖（0.2.2 服务名不变）', () => {
 test('apply 输出带包名前缀的启用日志', () => {
   const { logs } = boot()
   assert.ok(logs.length >= 1, '至少一条日志')
-  assert.ok(logs[0].startsWith('[dsh-think-zh-expand]'), '日志带包名前缀')
+  assert.ok(logs[0].startsWith('[dsh-zh-think-expand]'), '日志带包名前缀')
   assert.ok(logs[0].includes('已启用'), '日志描述已启用行为')
 })
 

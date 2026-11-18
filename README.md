@@ -1,4 +1,4 @@
-# dsh-think-zh-expand
+# dsh-zh-think-expand
 
 [![topic: dsh](https://img.shields.io/badge/插件生态-topic%20dsh-4d6bfe)](https://github.com/topics/dsh)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
@@ -21,7 +21,7 @@
 
 | 契约 | 0.2.2-rc.1 现状 | 本插件做法 |
 |---|---|---|
-| `systemPrompt.section({ name, order, text })` | 签名不变；`order` 必须为有限数值；同层重名抛错 | `order: -90`，section 名用本包专名 `dsh-think-zh-expand` |
+| `systemPrompt.section({ name, order, text })` | 签名不变；`order` 必须为有限数值；同层重名抛错 | `order: -90`，section 名用本包专名 `dsh-zh-think-expand` |
 | client bundle 注册 | `window.__ModuleLoader__.load({ id, factory })` | id 与包名一致，factory 内不 require 任何外部模块 |
 | client 插件导出 | `exports.inject` + `exports.apply(ctx)`，`ctx.effect` 可注册可清理副作用 | 只注册一个 DOM 观察器，卸载时自动断开 |
 | bundle patch | `dsh.bundle.patch` 指向的 `cordis.patch.yml` 由 loader 合并进 profile | 只做一条 `insert` |
@@ -61,10 +61,10 @@
 # 1. 构建（或直接用仓库里已提交的 lib/）
 pnpm install
 pnpm build
-pnpm pack      # 生成 dsh-think-zh-expand-2.0.0.tgz
+pnpm pack      # 生成 dsh-zh-think-expand-2.0.0.tgz
 
 # 2. 装进 desktop profile（DSH Desktop 的 profile 名是 desktop）
-dsh plugin --profile desktop add file:<绝对路径>/dsh-think-zh-expand-2.0.0.tgz
+dsh plugin --profile desktop add file:<绝对路径>/dsh-zh-think-expand-2.0.0.tgz
 
 # 3. 确认 bundle 行已合并
 dsh --profile desktop --dump-config | Select-String think-zh-expand
@@ -75,15 +75,14 @@ dsh --profile desktop --dump-config | Select-String think-zh-expand
 ### 方式 B：从源码 link（开发调试）
 
 ```powershell
-git clone https://github.com/Luoyur0/dsh-think-zh-expand.git
+git clone https://github.com/Luoyur0/dsh-zh-think-expand.git
 dsh plugin --profile desktop add link:<仓库路径>
 ```
 
-### 方式 C：npm / GitHub（发布后）
+### 方式 C：从 GitHub 安装
 
 ```powershell
-dsh plugin --profile desktop add dsh-think-zh-expand
-dsh plugin --profile desktop add github:Luoyur0/dsh-think-zh-expand
+dsh plugin --profile desktop add github:Luoyur0/dsh-zh-think-expand
 ```
 
 安装后**重启 DSH Desktop**（host 插件在启动时加载，client bundle 在页面加载时注入）；刷新页面即可看到中文化效果。
@@ -94,12 +93,12 @@ dsh plugin --profile desktop add github:Luoyur0/dsh-think-zh-expand
 
 ```powershell
 dsh plugin --profile desktop add dsh-auto-collapse   # 或 dsh-turn-fold
-dsh plugin --profile desktop add file:<路径>/dsh-think-zh-expand-2.0.0.tgz
+dsh plugin --profile desktop add file:<路径>/dsh-zh-think-expand-2.0.0.tgz
 ```
 
 **不要同时启用** `dsh-auto-collapse` 与 `dsh-turn-fold`——两者都通过 DOM/渲染器操作对话区，机制互相致盲。
 
-与 `dsh-think-zh` / `dsh-think-zh-expand-eac` 的 section 名不同（`dsh-think-zh-expand`），可以共存，但注入的是同一段中文指令，**建议只启用其一**。
+与 `dsh-think-zh` / `dsh-think-zh-expand-eac` 的 section 名不同（`dsh-zh-think-expand`），可以共存，但注入的是同一段中文指令，**建议只启用其一**。
 
 ## 开发
 
@@ -135,4 +134,4 @@ pnpm test        # host 冒烟测试 + client bundle 静态校验
 
 ## 许可证
 
-MIT（派生自 [baosfeng](https://github.com/baosfeng) 的同名插件，原版权声明保留）。
+MIT（派生自 [baosfeng](https://github.com/baosfeng) 的 dsh-think-zh-expand 插件，原版权声明保留）。

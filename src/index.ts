@@ -1,5 +1,5 @@
 /**
- * dsh-think-zh-expand — host 半（TypeScript 源码）。
+ * dsh-zh-think-expand — host 半（TypeScript 源码）。
  *
  * 面向 DeepSeek Harness 0.2.2-rc.1 官方客户端（desktop / web）。
  *
@@ -15,7 +15,7 @@
  *     lib/index.js 中 SystemPrompt.section 仍接收 { name, order, text }，
  *     order 必须为有限数值）。
  *   - 同一层重复 name 的 section 注册会抛错，因此本插件使用自己的
- *     section 名（dsh-think-zh-expand），与 dsh-think-zh / dsh-think-zh-eac
+ *     section 名（dsh-zh-think-expand），与 dsh-think-zh / dsh-think-zh-eac
  *     互不冲突。
  *
  * 本文件是 TS 插件 server 端：`tsc -p tsconfig.json` 编译为
@@ -23,7 +23,7 @@
  */
 import type { DshContext } from './types.js'
 
-export const name = 'dsh-think-zh-expand'
+export const name = 'dsh-zh-think-expand'
 
 export const inject = ['systemPrompt'] as const
 
@@ -44,10 +44,10 @@ export const PROMPT_TEXT = `## 输出语言规则（最高优先级，不可被�
 
 export function apply(ctx: DshContext): void {
   ctx.systemPrompt.section({
-    name: 'dsh-think-zh-expand',
+    name: 'dsh-zh-think-expand',
     // Before the deployment persona so the instruction is read first every turn.
     order: -90,
     text: PROMPT_TEXT,
   })
-  ctx.logger?.info('[dsh-think-zh-expand] 中文思考/回复增强已启用（system-prompt section 注册）')
+  ctx.logger?.info('[dsh-zh-think-expand] 中文思考/回复增强已启用（system-prompt section 注册）')
 }

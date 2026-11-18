@@ -1,5 +1,5 @@
 /**
- * dsh-think-zh-expand — client 端入口（面向 DSH 0.2.2-rc.1 官方客户端）。
+ * dsh-zh-think-expand — client 端入口（面向 DSH 0.2.2-rc.1 官方客户端）。
  *
  * 本文件派生自 baosfeng/my-dsh-plugins 的 dsh-think-zh-expand（MIT），
  * 并经 jing-hy/dsh-think-zh-expand-eac 裁剪：**不接管任何对话渲染器**。
@@ -12,7 +12,7 @@
  *   - `conversation.chat.node` 的 `assistant-step` 渲染器注册（priority:-1 抢位）
  *   - ThinkBlock（默认展开、流式强制展开）
  *   - AssistantStepView 及 imageBlock / renderBlocks 等自绘渲染逻辑
- *   - 官方 SVG 图标内联与 `.dsh-think-zh-expand-*` 样式表
+ *   - 官方 SVG 图标内联与 `.dsh-zh-think-expand-*` 样式表
  *   - 对 `dsh-md-render` 的跨插件 MarkdownView 依赖
  *
  * 0.2.2 兼容性：官方 UI 的 DOM 锚点（`data-chat-call-id`、`toolCatalog*`
@@ -493,5 +493,5 @@ _exports.inject = []
 
 _exports.apply = function apply(ctx: ClientContext): void {
   // UI 残留英文中文化（唯一保留的客户端功能）；ctx.effect 随插件卸载自动断开 observer。
-  ctx.effect(() => installUiLocalize(), 'dsh-think-zh-expand: ui localization')
+  ctx.effect(() => installUiLocalize(), 'dsh-zh-think-expand: ui localization')
 }

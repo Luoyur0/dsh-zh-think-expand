@@ -1,5 +1,5 @@
 /**
- * dsh-think-zh-expand — DSH 0.2.2-rc.1 运行时类型声明（server 端）。
+ * dsh-zh-think-expand — DSH 0.2.2-rc.1 运行时类型声明（server 端）。
  *
  * 手写最小契约：插件只用 ctx 的少量 API（systemPrompt.section）。
  * DSH 运行时模块（@deepseek-ai/cordis / @deepseek-ai/dsh-system-prompt）

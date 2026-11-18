@@ -2,7 +2,7 @@
 
 ## 2.0.0 — 2026-11-15
 
-面向 **DeepSeek Harness 0.2.2-rc.1** 官方客户端的兼容版本（包名 `dsh-think-zh-expand`）。
+面向 **DeepSeek Harness 0.2.2-rc.1** 官方客户端的兼容版本（包名 `dsh-zh-think-expand`）。
 
 ### 兼容性
 
@@ -10,7 +10,7 @@
   - peerDependencies 由 `cordis` 改为 `@deepseek-ai/cordis`（4.1.0），`@deepseek-ai/dsh-system-prompt` 指向 `^0.2.2-rc.1`；
   - `exports` 增加 `./cordis.patch.yml`，`dsh.client` 显式声明 `platform: 'web'` 与空 `inject`；
   - 桌面版 profile 名由 `web-desktop` 更正为 **`desktop`**。
-- host 端：`systemPrompt.section({ name, order, text })` 签名与 0.2.2 一致；section 名改为 `dsh-think-zh-expand`，`order: -90`，并断言 `order` 为有限数值。
+- host 端：`systemPrompt.section({ name, order, text })` 签名与 0.2.2 一致；section 名改为 `dsh-zh-think-expand`，`order: -90`，并断言 `order` 为有限数值。
 - client 端：沿用 0.2.2 仍存在的 DOM 锚点（`data-chat-call-id`、`toolCatalog*`、`data-chat-flow-key`）；bundle 仍以 `window.__ModuleLoader__.load({ id, factory })` 注册，id 与包名一致。
 - 新增：`aria-label` / `title` / `placeholder` 属性补译（0.2.2 客户端大量使用 aria-label 承载按钮语义）。
 

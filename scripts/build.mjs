@@ -2,7 +2,7 @@
  * Build: compile the client TypeScript source (src/client/index.ts) to a
  * CommonJS bundle with tsc, then splice it into the lib/client.src.js template
  * (at the /*__CLIENT_BUNDLE__* / placeholder) and write lib/client.js — the
- * file DSH actually serves at /plugins/dsh-think-zh-expand/client.js.
+ * file DSH actually serves at /plugins/dsh-zh-think-expand/client.js.
  *
  * Also splice shared icons from dsh-shared (icons.part.js) into the template.
  *

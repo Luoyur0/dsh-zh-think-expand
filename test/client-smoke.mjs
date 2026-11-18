@@ -1,5 +1,5 @@
 /**
- * dsh-think-zh-expand — client 半静态校验（无需 DOM / 浏览器）。
+ * dsh-zh-think-expand — client 半静态校验（无需 DOM / 浏览器）。
  *
  * 客户端 bundle 只能在 DSH 的浏览器上下文里运行，这里做三件事：
  *   1. node --check 校验 lib/client.js 语法；
@@ -23,7 +23,7 @@ test('lib/client.js 语法有效', () => {
 
 test('以 __ModuleLoader__.load 注册，id 与包名一致', () => {
   assert.ok(source.includes('window.__ModuleLoader__.load('), '使用官方 client bundle 注册入口')
-  assert.ok(source.includes("id: 'dsh-think-zh-expand'"), '注册 id 为 dsh-think-zh-expand')
+  assert.ok(source.includes("id: 'dsh-zh-think-expand'"), '注册 id 为 dsh-zh-think-expand')
 })
 
 test('导出 inject 与 apply', () => {
