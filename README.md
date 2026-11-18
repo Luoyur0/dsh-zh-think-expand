@@ -98,8 +98,6 @@ dsh plugin --profile desktop add file:<路径>/dsh-zh-think-expand-2.0.0.tgz
 
 **不要同时启用** `dsh-auto-collapse` 与 `dsh-turn-fold`——两者都通过 DOM/渲染器操作对话区，机制互相致盲。
 
-与 `dsh-think-zh` / `dsh-think-zh-expand-eac` 的 section 名不同（`dsh-zh-think-expand`），可以共存，但注入的是同一段中文指令，**建议只启用其一**。
-
 ## 开发
 
 ```powershell
