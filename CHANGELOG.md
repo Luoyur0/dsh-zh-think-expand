@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0 — 2026-11-19
+
+客户端中文化收窄到「工作步骤展示区」，对话正文与输入框不再参与改写。
+
+### 变更
+
+- 新增 `[data-step-process]` 锚点判定：词表与正则替换只在工作步骤展示区内生效；
+- `aria-label` / `title` / `placeholder` 补译同样限定到步骤展示区与工具目录面板；
+- 对话正文、输入框（contenteditable）与其余界面文本不参与改写。
+
 ## 2.0.0 — 2026-11-15
 
 面向 **DeepSeek Harness 0.2.2-rc.1** 官方客户端的兼容版本（包名 `dsh-zh-think-expand`）。

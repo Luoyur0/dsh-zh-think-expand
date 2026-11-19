@@ -1,7 +1,7 @@
 {
   "name": "dsh-zh-think-expand",
-  "version": "2.0.0",
-  "description": "DSH 思考增强插件（0.2.2 官方客户端兼容版）：思考与回复强制中文（system-prompt 注入）+ 界面残留英文中文化。不接管任何对话渲染器，可与折叠类插件共存。Compatible with DeepSeek Harness 0.2.2-rc.1 desktop/web clients.",
+  "version": "2.1.0",
+  "description": "DSH 思考增强插件（0.2.2 官方客户端兼容版）：思考与回复强制中文（system-prompt 注入）+ 工作步骤展示区中文化。不接管任何对话渲染器，可与折叠类插件共存。Compatible with DeepSeek Harness 0.2.2-rc.1 desktop/web clients.",
   "type": "module",
   "main": "lib/index.js",
   "engines": {
