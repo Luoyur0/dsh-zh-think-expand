@@ -3,6 +3,7 @@
 [![topic: dsh](https://img.shields.io/badge/插件生态-topic%20dsh-4d6bfe)](https://github.com/topics/dsh)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![DSH](https://img.shields.io/badge/DeepSeek%20Harness-0.2.2--rc.1-4d6bfe)](https://github.com/deepseek-ai/deepseek-harness)
+[![npm](https://img.shields.io/npm/v/dsh-zh-think-expand.svg)](https://www.npmjs.com/package/dsh-zh-think-expand)
 
 **DSH 思考增强插件（0.2.2 官方客户端兼容版）**：让 agent 的思考（reasoning）与最终回复强制使用中文，并把工作步骤展示区（`[data-step-process]`）里仍为英文的文案补全为中文。不接管任何对话渲染器，可与折叠类插件共存。
 
@@ -54,7 +55,20 @@
 
 ## 安装
 
-### 方式 A：安装本地 tgz（推荐，桌面版）
+### 方式 A：从 npm 安装（推荐）
+
+在 DSH 的插件管理器里搜索 `dsh-zh-think-expand` 安装。宿主内安装走热加载，通常几十秒内生效，不必退出应用。
+
+或先**完全退出 DSH Desktop**，再用 CLI（桌面端运行期间 CLI 会拒绝写该 profile）：
+
+```powershell
+dsh plugin --profile desktop add dsh-zh-think-expand
+
+# 确认 bundle 行已合并
+dsh --profile desktop --dump-config | Select-String think-zh-expand
+```
+
+### 方式 B：安装本地 tgz（离线 / 内网）
 
 ```powershell
 # 1. 构建（或直接用仓库里已提交的 lib/）
@@ -71,20 +85,20 @@ dsh --profile desktop --dump-config | Select-String think-zh-expand
 
 也可以把 tgz 复制到 `~/.dsh/plugin-packages/`，在插件管理器里安装；或手动写入 `~/.dsh/profiles/desktop/package.json` 的 `dependencies` 与 `dsh.profile.bundles`，再 `pnpm install`。
 
-### 方式 B：从源码 link（开发调试）
+### 方式 C：从源码 link（开发调试）
 
 ```powershell
 git clone https://github.com/Luoyur0/dsh-zh-think-expand.git
 dsh plugin --profile desktop add link:<仓库路径>
 ```
 
-### 方式 C：从 GitHub 安装
+### 方式 D：从 GitHub 安装
 
 ```powershell
 dsh plugin --profile desktop add github:Luoyur0/dsh-zh-think-expand
 ```
 
-安装后**重启 DSH Desktop**（host 插件在启动时加载，client bundle 在页面加载时注入）；刷新页面即可看到中文化效果。
+生效方式：host 侧由宿主热加载（包自己的数据目录或日志出现即为已加载；用 CLI 安装或改动 host 代码后需重启 DSH Desktop）；client bundle 在页面加载时注入，刷新页面即可看到中文化效果。
 
 ## 与折叠插件共存
 
