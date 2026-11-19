@@ -5,8 +5,11 @@
  * 并经 jing-hy/dsh-think-zh-expand-eac 裁剪：**不接管任何对话渲染器**。
  *
  * 保留：
- *   功能 2：界面残留英文中文化（DOM 精准文本替换 + aria-label/title 补译，
- *          MutationObserver 跟随 React 重渲染持续生效）。
+ *   功能 2：工作步骤展示区（[data-step-process]）的残留英文中文化
+ *          （DOM 精准文本替换 + aria-label/title 补译，MutationObserver
+ *          跟随 React 重渲染持续生效）。改写范围限定为步骤展示区、
+ *          工具调用行（data-chat-call-id）与工具目录面板（toolCatalog），
+ *          正文、输入框与其余界面文本不参与。
  *
  * 已移除（与 dsh-auto-collapse / dsh-turn-fold 等折叠插件冲突）：
  *   - `conversation.chat.node` 的 `assistant-step` 渲染器注册（priority:-1 抢位）
@@ -275,6 +278,16 @@ function inToolCatalog(element: Element): boolean {
   return false
 }
 
+/** 工作步骤展示区（[data-step-process]）判定：正文、输入框等其余区域一律不参与改写。 */
+function inStepProcess(element: Element): boolean {
+  let node: Element | null = element
+  while (node && node.nodeType === 1) {
+    if (node.hasAttribute && node.hasAttribute('data-step-process')) return true
+    node = node.parentElement
+  }
+  return false
+}
+
 function catalogItemOf(element: Element): Element | null {
   let node: Element | null = element
   while (node && node.nodeType === 1) {
@@ -378,6 +391,7 @@ function translateTextNode(textNode: Text, localizedItems: WeakSet<Element>): vo
       return
     }
   }
+  if (!inStepProcess(parent)) return
   if (tryExactText(textNode, trimmed)) return
   tryPatternText(textNode, trimmed)
 }
@@ -410,6 +424,7 @@ function localizeAttributes(root: Element): void {
   elements.push(...root.querySelectorAll('[aria-label], [title], [placeholder]'))
   for (const el of elements) {
     if (inSkipped(el)) continue
+    if (!inStepProcess(el) && !inToolCatalog(el)) continue
     for (const attr of LOCALIZED_ATTRS) {
       const current = el.getAttribute(attr)
       if (current === null || current === '') continue
