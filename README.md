@@ -14,8 +14,10 @@
 | 目标客户端 | **DeepSeek Harness 0.2.2-rc.1**（desktop / web） |
 | 桌面版 profile 名 | `desktop`（`~/.dsh/profiles/desktop`） |
 | Node | ≥ 22 |
-| host 依赖 | `systemPrompt` 服务（`@deepseek-ai/dsh-system-prompt@0.2.2-rc.1`） |
+| host 依赖 | `systemPrompt` 服务（`@deepseek-ai/dsh-system-prompt@>=0.2.2-rc.1 <0.3.0`） |
 | client 依赖 | `window.__ModuleLoader__`（`@deepseek-ai/dsh-client-modules`） |
+
+支持 DSH Web / Desktop。DSH 启动时允许 0.2.2-rc.1 起的所有宿主版本
 
 0.2.2-rc.1 兼容性已逐项核对（对照 `resources/app.asar` 内实现）：
 
