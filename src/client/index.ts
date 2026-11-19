@@ -118,7 +118,6 @@ const LOCALIZED_ATTRS = ['aria-label', 'title', 'placeholder'] as const
 const CARD_TITLE_ZH: Record<string, string> = {
   Search: '搜索',
   Read: '读取',
-  Bash: '命令行',
   Write: '写入',
   Edit: '编辑',
   Code: '代码',
@@ -130,7 +129,6 @@ const CARD_TITLE_ZH: Record<string, string> = {
 
 const TOOL_NAME_ZH: Record<string, string> = {
   web_search: '网络搜索',
-  bash: '命令行',
   read: '读取文件',
   write: '写入文件',
   edit: '编辑文件',
@@ -190,7 +188,6 @@ const TOOL_NAME_ZH: Record<string, string> = {
 
 const TOOL_DESC_ZH: Record<string, string> = {
   web_search: '搜索网络获取最新信息。',
-  bash: '执行命令并返回输出（可设置工作目录、超时）。',
   read: '读取 UTF-8 文本文件并返回带行号的内容。',
   write: '创建或完整替换一个 UTF-8 文本文件。',
   edit: '对现有文本文件做精确的局部替换修改。',
